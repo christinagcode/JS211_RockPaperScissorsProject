@@ -16,6 +16,36 @@ const rockPaperScissors = (hand1, hand2) => {
 
   // Write code here
   // Use the unit test to see what is expected
+hand1 = hand1.trim().toLowerCase();
+hand2 = hand2.trim().toLowerCase();
+
+  if (hand1 === hand2) {
+    return "It's a tie!"; 
+  } else if (hand1 === 'rock') {
+    if (hand2 === 'paper') {
+      return "Hand two wins!";
+    } else if (hand2 === 'scissors') {
+      return "Hand one wins!";
+    }
+  }
+
+  if (hand1 === 'paper') {
+    if (hand2 === 'rock') {
+      return "Hand one wins!";
+    } else if (hand2 === 'scissors') {
+      return "Hand two wins!";
+    }
+  }
+
+  if (hand1 === 'scissors') {
+    if (hand2 === 'papper') {
+      return "Hand one wins!";
+    } else if (hand2 === 'rock') {
+      return "Hand two wins!";
+    }
+  }
+  
+
 
 }
 
@@ -49,7 +79,7 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('rock', 'scissors'), "Hand one wins!");
     });
     it('should scrub input to ensure lowercase with "trim"ed whitepace', () => {
-      assert.equal(rockPaperScissors('rOcK', ' paper '), "Hand two wins!");
+      assert.equal(rockPaperScissors('rocK', ' paper '), "Hand two wins!");
       assert.equal(rockPaperScissors('Paper', 'SCISSORS'), "Hand two wins!");
       assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
     });
